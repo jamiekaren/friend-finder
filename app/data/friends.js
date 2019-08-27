@@ -1,3 +1,5 @@
+console.log("Working...");
+
 let user_answers = [
     {
         "name": "Jamie",

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- <script src="../data/friends.js"></script> -->
+    <script src="../data/friends.js"></script>
 </head>
 
 <body>
@@ -186,26 +186,35 @@
 
 <script type="text/javascript">
 
+current_user = [];
+
     function addPerson() {
         let newPerson = {
-            name: $("#user-name").val().trim(),
-            photo: $("#user-photo").val().trim(),
+            name: $("#user-name").val(),
+            photo: $("#user-photo").val(),
             scores: [$("#answer-one").val(), $("#answer-two").val(),
             $("#answer-three").val(), $("#answer-four").val(),
             $("#answer-five").val(), $("#answer-six").val(),
             $("#answer-seven").val(), $("#answer-eight").val(),
             $("#answer-nine").val(), $("#answer-ten").val()]
         };
-
-        console.log(newPerson);
+        
+        current_user.push(newPerson);
+        // user_answers.push(newPerson);
     };
+
+    
+
+
 
 
     $("#user-submit").on("click", function (event) {
         event.preventDefault();
         console.log("Button clicked!");
+        addPerson();
+        console.log(current_user);
         
-     $.post("/api/surveyanswers", addPerson);
+     $.post("/api/surveyanswers", current_user);
 
     });
 
