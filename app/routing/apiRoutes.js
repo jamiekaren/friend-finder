@@ -18,9 +18,14 @@ module.exports = function (app) {
         // req.body is available since we're using the body parsing middleware
         console.log(req.body);
 
-        // currentUser = [];
+        // now we check user scores against current friend list imported above
 
-        // console.log("This is the current user: " + currentUser);
+
+        // After that, we let the user know who their match is
+
+
+        
+        // And then we add the new user to our current friend array in friends.js
 
 
     });

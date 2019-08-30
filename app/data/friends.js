@@ -1,4 +1,4 @@
-console.log("Working...");
+console.log("Friends JS file Working...");
 
 let user_answers = [
     {

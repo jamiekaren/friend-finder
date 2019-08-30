@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="../data/friends.js"></script>
+      
+    <script src="app.js"></script>
+    
+    
 </head>
 
 <body>
@@ -39,10 +41,11 @@
         </div>
         <div class="row">
             <div class="col-xl">
-                <h1>Friend Finder Network Interview</h1>
+                <h1>Friend Finder Network Coffee Chat</h1>
                 <hr>
-                <h5>Tell us about yourself so we can find people who will be the best match!</h3>
-                    <br>
+                <p>Coffee ready? Great. </p>
+                <p>Would you be a dear and answer a few questions for us below?
+                    We'll use these in our search to find people who will be the best match!</h3><br>
                     <form>
                         <div class="form-group">
                             <label for="name">Your Full Name (required)</label>
@@ -121,7 +124,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="questionSeven">You judge people by their actions, not by how smart they are or
+                            <label for="questionSeven">You judge people by their actions, not by how smart they are
+                                or
                                 how
                                 much money they have.</label>
                             <select class="form-control" id="answer-seven">
@@ -180,46 +184,9 @@
     </div>
 
 
-
-
+    
 </body>
 
-<script type="text/javascript">
 
-    let current_user = {
-        name: "Name",
-        photo: "photo",
-        scores: []
-    };
-
-    function addPerson() {
-
-        let user_scores = [$("#answer-one").val(), $("#answer-two").val(),
-        $("#answer-three").val(), $("#answer-four").val(),
-        $("#answer-five").val(), $("#answer-six").val(),
-        $("#answer-seven").val(), $("#answer-eight").val(),
-        $("#answer-nine").val(), $("#answer-ten").val()];
-
-        current_user.name = $("#user-name").val();
-        current_user.photo = $("#user-photo").val();
-        current_user.scores = user_scores;
-    };
-
-
-
-    $("#user-submit").on("click", function (event) {
-        event.preventDefault();
-        console.log("Button clicked!");
-        addPerson();
-        console.log("This person was just added:");
-        console.log(current_user);
-        console.log("--------------------------");
-
-        $.post("/api/surveyanswers", current_user);
-
-    });
-
-
-</script>
 
 </html>
