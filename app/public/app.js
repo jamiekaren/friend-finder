@@ -30,5 +30,6 @@ $("#user-submit").on("click", function (event) {
     console.log(current_user);
     console.log("--------------------------");
 
+    $.post("/api/surveyanswers", current_user);
 });
 

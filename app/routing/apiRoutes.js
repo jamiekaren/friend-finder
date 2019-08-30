@@ -3,6 +3,7 @@
 
 const friends = require("../data/friends.js");
 
+
 // console.log(friends);
 
 let newFriends = friends.user_answers;
@@ -19,12 +20,7 @@ module.exports = function (app) {
         console.log(req.body);
 
         // now we check user scores against current friend list imported above
-
-
         // After that, we let the user know who their match is
-
-
-        
         // And then we add the new user to our current friend array in friends.js
 
 
@@ -33,8 +29,6 @@ module.exports = function (app) {
     // app.get("/api/friends", function (req, res) {
     //     res.json();
     // });
-
-
 
 
 };
