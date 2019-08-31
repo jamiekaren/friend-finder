@@ -1,6 +1,5 @@
 console.log("App JS file is working...");
 
-
 let current_user = {
     name: "Name",
     photo: "photo",
@@ -9,17 +8,19 @@ let current_user = {
 
 function addPerson() {
 
-    let user_scores = [$("#answer-one").val(), $("#answer-two").val(),
+    let scores = [$("#answer-one").val(), $("#answer-two").val(),
     $("#answer-three").val(), $("#answer-four").val(),
     $("#answer-five").val(), $("#answer-six").val(),
     $("#answer-seven").val(), $("#answer-eight").val(),
     $("#answer-nine").val(), $("#answer-ten").val()];
 
+    
     current_user.name = $("#user-name").val();
     current_user.photo = $("#user-photo").val();
-    current_user.scores = user_scores;
-};
 
+    current_user.scores = scores;
+   
+};
 
 
 $("#user-submit").on("click", function (event) {
