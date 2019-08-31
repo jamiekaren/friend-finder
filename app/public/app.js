@@ -1,6 +1,6 @@
 console.log("App JS file is working...");
 
-let current_user = {
+let newFriend = {
     name: "Name",
     photo: "photo",
     scores: [],
@@ -10,19 +10,14 @@ let current_user = {
 
 function findTotal() {
 
-    const add = (a,b)=>
-    a + b;
-    const sum = current_user.scores.reduce(add);
+    const add = (a, b) =>
+        parseInt(a) + parseInt(b);
+
+    const sum = newFriend.scores.reduce(add);
     console.log(sum);
 
+    newFriend.total_score = sum;
 
-    // let sum = 0;
-
-    // for (let i = 0; i < current_user.scores.length; i++) {
-    //     sum += current_user.scores[i];
-
-        current_user.total_score = sum;
-    // }
 };
 
 function addPerson() {
@@ -34,10 +29,10 @@ function addPerson() {
     $("#answer-nine").val(), $("#answer-ten").val()];
 
 
-    current_user.name = $("#user-name").val();
-    current_user.photo = $("#user-photo").val();
+    newFriend.name = $("#user-name").val();
+    newFriend.photo = $("#user-photo").val();
 
-    current_user.scores = scores;
+    newFriend.scores = scores;
 
     findTotal();
 
@@ -55,9 +50,9 @@ $("#user-submit").on("click", function (event) {
     console.log("Button clicked!");
     addPerson();
     console.log("This person was just added:");
-    console.log(current_user);
+    console.log(newFriend);
     console.log("--------------------------");
 
-    $.post("/api/surveyanswers", current_user);
+    $.post("/api/surveyanswers", newFriend);
 });
 
