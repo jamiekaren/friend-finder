@@ -6,10 +6,18 @@ const friends = require("../data/friends.js");
 
 // console.log(friends);
 
-let newFriends = friends.user_answers;
+let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
+this_user = {};
+
+
+// function compareFriends (person){
+//     for (let i = 0; i < newFriends.length; i++) {
+//         if (person.scores)
+//     }
+// };
 
 
 module.exports = function (app) {
@@ -17,9 +25,21 @@ module.exports = function (app) {
     app.post("/api/surveyanswers", function (req, res) {
 
         // req.body is available since we're using the body parsing middleware
-        console.log(req.body);
+     
+
+        this_user = req.body;
+
+        console.log("************ USER JUST ADDED! ************ ");
+        console.log(this_user);
+       
+
+
+
+
 
         // now we check user scores against current friend list imported above
+
+
         // After that, we let the user know who their match is
         // And then we add the new user to our current friend array in friends.js
 
