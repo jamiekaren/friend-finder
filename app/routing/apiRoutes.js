@@ -10,14 +10,27 @@ let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
-this_user = {};
+newUser = {};
 
 
-// function compareFriends (person){
-//     for (let i = 0; i < newFriends.length; i++) {
-//         if (person.scores)
-//     }
-// };
+
+function checkDifference() {
+    for (let i = 0; i < newFriends.length; i++) {
+        if (newUser.total_score != [i].total_score) {
+            user1 = [i].total_score - newUser.total_score;
+            [i].difference = user1;
+            console.log([i].difference);
+        };
+        
+    }
+   
+};
+
+console.log(newFriends);
+
+
+// newFriends.push(person);
+
 
 
 module.exports = function (app) {
@@ -25,17 +38,12 @@ module.exports = function (app) {
     app.post("/api/surveyanswers", function (req, res) {
 
         // req.body is available since we're using the body parsing middleware
-     
-
-        this_user = req.body;
+        newUser = req.body;
 
         console.log("************ USER JUST ADDED! ************ ");
-        console.log(this_user);
-       
+        console.log(newUser);
 
-
-
-
+        checkDifference();
 
         // now we check user scores against current friend list imported above
 

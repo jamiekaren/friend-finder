@@ -4,7 +4,8 @@ let newFriend = {
     name: "Name",
     photo: "photo",
     scores: [],
-    total_score: 0
+    total_score: 0,
+    difference: 0
 };
 
 
@@ -37,11 +38,6 @@ function addPerson() {
     findTotal();
 
 };
-
-
-
-
-
 
 
 
