@@ -10,20 +10,35 @@ let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
-newUser = {};
+let newUser = {};
 
-
+let difference = [];
 
 function checkDifference() {
-    for (let i = 0; i < newFriends.length; i++) {
-        if (newUser.total_score != [i].total_score) {
-            user1 = [i].total_score - newUser.total_score;
-            [i].difference = user1;
-            console.log([i].difference);
-        };
-        
+
+    newFriends.forEach((entry) => {
+        if (newUser.total_score != entry.total_score) {
+            user1 = entry.total_score - newUser.total_score;
+            difference.push (user1);
+            console.log (user1);
+            console.log(difference);
+          
+
+        } else
+        console.log ("Match found!" + entry);
+    });
+    newFriends.push(newUser);
+    pickMatch();
+    
+};
+
+function pickMatch () {
+    for (let i=0; i < difference.length; i++){
+        if ([i])
     }
-   
+
+
+    difference.length = 0;
 };
 
 console.log(newFriends);
