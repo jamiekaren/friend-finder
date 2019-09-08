@@ -17,7 +17,7 @@ function findTotal() {
     const sum = newFriend.scores.reduce(add);
     console.log(sum);
 
-    newFriend.total_score = sum;
+    newFriend.total_score = parseInt(sum);
 
 };
 
@@ -41,7 +41,7 @@ function addPerson() {
 
 
 
-$("#user-submit").on("click", function (event) {
+$("#user-submit").on("click", (event) => {
     event.preventDefault();
     console.log("Button clicked!");
     addPerson();

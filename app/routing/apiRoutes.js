@@ -12,40 +12,56 @@ console.log(newFriends);
 
 let newUser = {};
 
-let difference = [];
+// var difference = [];
 
-function checkDifference() {
+// let number_check = 0;
 
-    newFriends.forEach((entry) => {
-        if (newUser.total_score != entry.total_score) {
-            user1 = entry.total_score - newUser.total_score;
-            difference.push (user1);
-            console.log (user1);
-            console.log(difference);
-          
 
-        } else
-        console.log ("Match found!" + entry);
-    });
-    newFriends.push(newUser);
-    pickMatch();
+
+// function checkDifference() {
+
+//     newFriends.forEach((entry) => {
+//         if (newUser.total_score != entry.total_score) {
+//             user1 = entry.total_score - newUser.total_score;
+//             entry.difference = user1;
+//             console.log("Current difference " + user1);
+//         } else
+//             console.log("Match found!" + entry);
+//         // console.log(Math.min(newFriends.difference));
+//     });
+
+//     console.log("All friends: ");
+//     console.log(newFriends);
+//     pickMatch(newUser.total_score, newFriends);
+
+// };
+
+
+
+function pickMatch() {
+    let current = 60;
+    let difference = Math.abs(newUser.total_score - current);
+
+    console.log("This is current total score " + current);
+    console.log(difference);
+
+    for (let i = 0; i > newFriends.length; i++) {
+        let newDifference = Math.abs(newUser.total_score - [i].total_score);
+
+        if (newDifference < difference) {
+            difference = newDifference;
+            current = [i];
+        }
+        return current;
+    };
+    
     
 };
 
-function pickMatch () {
-    for (let i=0; i < difference.length; i++){
-        if ([i])
-    }
 
 
-    difference.length = 0;
-};
 
-console.log(newFriends);
-
-
-// newFriends.push(person);
-
+// newFriends.push(newUser);
 
 
 module.exports = function (app) {
@@ -58,7 +74,10 @@ module.exports = function (app) {
         console.log("************ USER JUST ADDED! ************ ");
         console.log(newUser);
 
-        checkDifference();
+        pickMatch();
+        newFriends.push(newUser);
+        console.log("These are all new friends: ")
+        console.log(newFriends);
 
         // now we check user scores against current friend list imported above
 
