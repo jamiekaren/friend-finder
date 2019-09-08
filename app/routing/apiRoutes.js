@@ -3,65 +3,47 @@
 
 const friends = require("../data/friends.js");
 
-
-// console.log(friends);
-
 let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
 let newUser = {};
 
-// var difference = [];
-
-// let number_check = 0;
+// let currentMatch = {};
 
 
-
-// function checkDifference() {
-
-//     newFriends.forEach((entry) => {
-//         if (newUser.total_score != entry.total_score) {
-//             user1 = entry.total_score - newUser.total_score;
-//             entry.difference = user1;
-//             console.log("Current difference " + user1);
-//         } else
-//             console.log("Match found!" + entry);
-//         // console.log(Math.min(newFriends.difference));
-//     });
-
-//     console.log("All friends: ");
-//     console.log(newFriends);
-//     pickMatch(newUser.total_score, newFriends);
-
-// };
-
-
+//Need to create a function that checks our current user with all friends in our "database"
+//Using Math.abs finds the absolute value (ie value closest to 0 regardness of negative or positive number)
+//
 
 function pickMatch() {
-    let current = 60;
-    let difference = Math.abs(newUser.total_score - current);
+    var currentPick = newFriends[0].total_score;
+    var difference = Math.abs(newUser.total_score - currentPick);
 
-    console.log("This is current total score " + current);
-    console.log(difference);
+    // we want to go through our array starting at index 1 (since we did 0 above)
 
-    for (let i = 0; i > newFriends.length; i++) {
-        let newDifference = Math.abs(newUser.total_score - [i].total_score);
+    newFriends.forEach((entry) => {
 
+        var newDifference = Math.abs(newUser.total_score - entry.total_score);
+        console.log(newDifference);
+        //compare new difference to our previous difference
         if (newDifference < difference) {
             difference = newDifference;
-            current = [i];
+            currentPick = entry;
         }
-        return current;
-    };
-    
-    
+
+        // else if the new difference is not less than our previous difference
+        //we want to return the whole object as our selected match to user
+        //Then we want to add the current user to our friends array (database)
+    });
+
+    console.log("This is our current match:");
+    console.log(currentPick);
+    newFriends.push(currentPick);
+
 };
 
 
-
-
-// newFriends.push(newUser);
 
 
 module.exports = function (app) {
@@ -75,15 +57,10 @@ module.exports = function (app) {
         console.log(newUser);
 
         pickMatch();
-        newFriends.push(newUser);
+        // newFriends.push(newUser);
         console.log("These are all new friends: ")
         console.log(newFriends);
 
-        // now we check user scores against current friend list imported above
-
-
-        // After that, we let the user know who their match is
-        // And then we add the new user to our current friend array in friends.js
 
 
     });
