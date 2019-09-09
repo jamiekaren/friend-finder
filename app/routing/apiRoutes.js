@@ -3,48 +3,46 @@
 
 const friends = require("../data/friends.js");
 
-
-// console.log(friends);
-
 let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
 let newUser = {};
 
-let difference = [];
+// let currentMatch = {};
 
-function checkDifference() {
+
+//Need to create a function that checks our current user with all friends in our "database"
+//Using Math.abs finds the absolute value (ie value closest to 0 regardness of negative or positive number)
+//
+
+function pickMatch() {
+    var currentPick = newFriends[0].total_score;
+    var difference = Math.abs(newUser.total_score - currentPick);
+
+    // we want to go through our array starting at index 1 (since we did 0 above)
 
     newFriends.forEach((entry) => {
-        if (newUser.total_score != entry.total_score) {
-            user1 = entry.total_score - newUser.total_score;
-            difference.push (user1);
-            console.log (user1);
-            console.log(difference);
-          
 
-        } else
-        console.log ("Match found!" + entry);
+        var newDifference = Math.abs(newUser.total_score - entry.total_score);
+        console.log(newDifference);
+        //compare new difference to our previous difference
+        if (newDifference < difference) {
+            difference = newDifference;
+            currentPick = entry;
+        }
+
+        // else if the new difference is not less than our previous difference
+        //we want to return the whole object as our selected match to user
+        //Then we want to add the current user to our friends array (database)
     });
-    newFriends.push(newUser);
-    pickMatch();
-    
+
+    console.log("This is our current match:");
+    console.log(currentPick);
+    newFriends.push(currentPick);
+
 };
 
-function pickMatch () {
-    for (let i=0; i < difference.length; i++){
-        if ([i])
-    }
-
-
-    difference.length = 0;
-};
-
-console.log(newFriends);
-
-
-// newFriends.push(person);
 
 
 
@@ -58,13 +56,11 @@ module.exports = function (app) {
         console.log("************ USER JUST ADDED! ************ ");
         console.log(newUser);
 
-        checkDifference();
+        pickMatch();
+        // newFriends.push(newUser);
+        console.log("These are all new friends: ")
+        console.log(newFriends);
 
-        // now we check user scores against current friend list imported above
-
-
-        // After that, we let the user know who their match is
-        // And then we add the new user to our current friend array in friends.js
 
 
     });
