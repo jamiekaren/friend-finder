@@ -9,6 +9,8 @@ console.log(newFriends);
 
 let newUser = {};
 
+let logUser = newUser;
+
 // let currentMatch = {};
 
 
@@ -20,6 +22,7 @@ function pickMatch() {
     // Set variable of the person we currently our at in our array total score...??
     //Then we find the difference as noted above with our new user minus current
     var currentPick = newFriends[0].total_score;
+    //var userFriend;
     var difference = Math.abs(newUser.total_score - currentPick);
 
     // we want to go through our array starting at index 1 (since we did 0 above)
@@ -32,8 +35,10 @@ function pickMatch() {
         if (newDifference < difference) {
             difference = newDifference;
             currentPick = entry;
+            //userFriend = entry.name;
+            
         }
-
+        
         // else if the new difference is not less than our previous difference
         //we want to return the whole object as our selected match to user
         //Then we want to add the current user to our friends array (database)
@@ -41,7 +46,7 @@ function pickMatch() {
 
     console.log("This is our current match:");
     console.log(currentPick);
-    newFriends.push(currentPick);
+    newFriends.push(logUser);
 
 };
 
