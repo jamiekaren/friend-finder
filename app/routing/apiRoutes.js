@@ -7,8 +7,10 @@ let newFriends = friends.network_friends;
 
 console.log(newFriends);
 
+// save the user input currently on app to an object
 let newUser = {};
 
+// but we also need to save it here so we can push to friend object in data js file?
 let logUser = newUser;
 
 // let currentMatch = {};
@@ -65,7 +67,7 @@ module.exports = function (app) {
 
         pickMatch();
         // newFriends.push(newUser);
-        console.log("These are all new friends: ")
+        console.log("These are all new friends including current user: ")
         console.log(newFriends);
 
 
