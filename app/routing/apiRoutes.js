@@ -17,6 +17,8 @@ let newUser = {};
 //
 
 function pickMatch() {
+    // Set variable of the person we currently our at in our array total score...??
+    //Then we find the difference as noted above with our new user minus current
     var currentPick = newFriends[0].total_score;
     var difference = Math.abs(newUser.total_score - currentPick);
 
